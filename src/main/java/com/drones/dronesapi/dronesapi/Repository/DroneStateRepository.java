@@ -1,10 +1,10 @@
-package com.drones.dronesapi.dronesapi.repository;
+package com.drones.dronesapi.dronesapi.Repository;
 
-import java.util.List;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.drones.dronesapi.dronesapi.model.DroneState;
+import com.drones.dronesapi.dronesapi.Model.DroneState;
 
 public interface DroneStateRepository extends JpaRepository<DroneState, Long> {
   

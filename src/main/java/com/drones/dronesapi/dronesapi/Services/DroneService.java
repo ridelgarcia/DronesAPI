@@ -1,16 +1,15 @@
-package com.drones.dronesapi.dronesapi.services;
+package com.drones.dronesapi.dronesapi.Services;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.drones.dronesapi.dronesapi.model.Drone;
-import com.drones.dronesapi.dronesapi.repository.DroneRepository;
+import com.drones.dronesapi.dronesapi.Model.Drone;
+import com.drones.dronesapi.dronesapi.Repository.DroneRepository;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Service
 public class DroneService {

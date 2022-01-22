@@ -1,4 +1,4 @@
-package com.drones.dronesapi.dronesapi.model;
+package com.drones.dronesapi.dronesapi.Model;
 
 import javax.persistence.*;
 

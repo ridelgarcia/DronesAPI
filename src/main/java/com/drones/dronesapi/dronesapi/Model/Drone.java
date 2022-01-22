@@ -1,8 +1,7 @@
-package com.drones.dronesapi.dronesapi.model;
+package com.drones.dronesapi.dronesapi.Model;
 
 import javax.persistence.*;
-import com.drones.dronesapi.dronesapi.model.DroneModel;
-import com.drones.dronesapi.dronesapi.model.DroneState;
+
 @Entity
 @Table(name = "drone")
 public class Drone {
