@@ -1,7 +1,12 @@
 package com.drones.dronesapi.dronesapi.Model;
 
 import javax.persistence.*;
+import lombok.Setter;
+import lombok.Getter;
 
+
+@Getter
+@Setter
 @Entity
 @Table(name = "drone_state")
 public class DroneState {
@@ -10,34 +15,23 @@ public class DroneState {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(name = "drone_state")
-	private String drone_state;
+	@Column(name = "droneState")
+	private String droneState;
 
 
 	public DroneState() {
 
 	}
 
-	public DroneState(String _drone_state ) {
-		this.drone_state = _drone_state;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public String getDroneState() {
-		return this.drone_state;
-	}
-
-	public void setDroneState(String _drone_state) {
-		this.drone_state = _drone_state;
+	public DroneState(String _droneState ) {
+		this.droneState = _droneState;
 	}
 
 	
+	
 	@Override
 	public String toString() {
-		return "DroneState [id=" + id + ", drone_state=" + drone_state + "]";
+		return "DroneState [id=" + id + ", drone_state=" + droneState + "]";
 	}
 
 }
