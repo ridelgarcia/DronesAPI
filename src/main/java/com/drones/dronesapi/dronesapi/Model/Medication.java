@@ -9,16 +9,17 @@ import lombok.Getter;
 @Getter
 @Setter
 public class Medication {
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	private long id;
 
 	@Column(name = "name")
 	private String name;
 	
 	@Column(name = "weight")
-	private String weight;
+	private int weight;
 	
 	@Column(name = "code")
 	private String code;
@@ -30,7 +31,7 @@ public class Medication {
 		
 	}
 
-	public Medication(long id, String name, String weight, String code, String imagePath) {
+	public Medication(long id, String name, int weight, String code, String imagePath) {
 		super();
 		this.id = id;
 		this.name = name;
