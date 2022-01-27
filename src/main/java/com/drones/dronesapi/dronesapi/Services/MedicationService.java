@@ -17,8 +17,8 @@ public class MedicationService {
 	@Autowired
 	private MedicationRepository rep;	
 	
-	public Medication save(Medication _entity) {
-		return rep.save(_entity);
+	public Medication save(Medication entity) {
+		return rep.save(entity);
 	}
 	
 	public Medication getById(Serializable id) {
@@ -27,7 +27,7 @@ public class MedicationService {
 	public List<Medication> getAll() {
 		return rep.findAll();
 	}	
-	public void delete(Medication _drone) {
-		rep.delete(_drone);
+	public void delete(Medication medication) {
+		rep.delete(medication);
 	}
 }

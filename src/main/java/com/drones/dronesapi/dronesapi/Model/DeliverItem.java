@@ -12,7 +12,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "deliveritem")
+@Table(name = "deliver_item")
 @Getter
 @Setter
 public class DeliverItem {
@@ -43,4 +43,7 @@ public class DeliverItem {
 		return "DeliverItem [id=" + id + ", medication=" + medication + ", amount=" + amount + "]";
 	}
 	
+	public int calculateWeight() {
+		return medication.getWeight()*amount;
+	}
 }

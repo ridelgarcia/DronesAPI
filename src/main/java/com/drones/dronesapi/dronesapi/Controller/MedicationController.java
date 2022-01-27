@@ -19,17 +19,11 @@ import com.drones.dronesapi.dronesapi.Common.DTO.Response.Medication.*;
 @RequestMapping("/medication")
 public class MedicationController {
 	
-	MedicationService medicationService;
-	
-	MapStructMapper mapper;
-	
+	@Autowired
+	private MedicationService medicationService;
 	
 	@Autowired
-	public MedicationController(MedicationService medicationService, MapStructMapper mapper) {
-		super();
-		this.medicationService = medicationService;
-		this.mapper = mapper;
-	}
+	private MapStructMapper mapper;	
 	
 	@RequestMapping(value = "/getAll",method = RequestMethod.GET)
 	public ResponseEntity<List<MedicationResponseDTO>> getAll() {

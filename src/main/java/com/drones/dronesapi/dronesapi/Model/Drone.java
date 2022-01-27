@@ -1,6 +1,9 @@
 package com.drones.dronesapi.dronesapi.Model;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.OptimisticLocking;
+
 import lombok.Setter;
 import lombok.Getter;
 
@@ -9,6 +12,7 @@ import lombok.Getter;
 @Table(name = "drone")
 @Getter
 @Setter
+@OptimisticLocking
 public class Drone {
 
 	@Id
