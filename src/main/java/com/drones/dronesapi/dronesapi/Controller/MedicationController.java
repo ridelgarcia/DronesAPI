@@ -5,12 +5,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.drones.dronesapi.dronesapi.Services.MedicationService;
 import com.drones.dronesapi.dronesapi.Common.Mappers.MapStructMapper;
-
+import com.drones.dronesapi.dronesapi.Model.Drone;
 import com.drones.dronesapi.dronesapi.Model.Medication;
 import com.drones.dronesapi.dronesapi.Common.DTO.Request.Medication.*;
 import com.drones.dronesapi.dronesapi.Common.DTO.Response.Medication.*;
@@ -35,7 +36,11 @@ public class MedicationController {
         List<Medication> medications = medicationService.getAll();
 		return new ResponseEntity<List<Medication>>(medications,HttpStatus.OK);
 	}
-    
+	@RequestMapping(value = "/getById/{id}",method = RequestMethod.GET)
+	public ResponseEntity<Medication> getById(@PathVariable("id") long id) {
+        Medication medication = medicationService.getById(id);
+		return new ResponseEntity<Medication>(medication,HttpStatus.OK);
+	}
 	@RequestMapping(value = "/addMedication",method = RequestMethod.PUT)
 	public ResponseEntity<?> addMedication(@RequestBody AddMedicationRequestDTO request) {
         Medication medication = mapper.addMedicationRequestDTOToMedication(request);

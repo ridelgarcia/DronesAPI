@@ -5,9 +5,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
 import com.drones.dronesapi.dronesapi.Services.DroneService;
 import com.drones.dronesapi.dronesapi.Model.Drone;
 import com.drones.dronesapi.dronesapi.Common.Mappers.MapStructMapper;
@@ -36,6 +40,11 @@ public class DroneController {
 	public ResponseEntity<List<Drone>> getAll() {
         List<Drone> drones = droneService.getAll();
 		return new ResponseEntity<List<Drone>>(drones,HttpStatus.OK);
+	}
+	@RequestMapping(value = "/getById/{id}",method = RequestMethod.GET)
+	public ResponseEntity<Drone> getById(@PathVariable("id") long id) {
+        Drone drone = droneService.getById(id);
+		return new ResponseEntity<Drone>(drone,HttpStatus.OK);
 	}
     
 	@RequestMapping(value = "/addDrone",method = RequestMethod.PUT)
