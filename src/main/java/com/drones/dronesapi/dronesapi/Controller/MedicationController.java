@@ -1,5 +1,6 @@
 package com.drones.dronesapi.dronesapi.Controller;
 
+import java.util.LinkedList;
 import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.drones.dronesapi.dronesapi.Services.MedicationService;
 import com.drones.dronesapi.dronesapi.Common.Mappers.MapStructMapper;
-import com.drones.dronesapi.dronesapi.Model.Drone;
 import com.drones.dronesapi.dronesapi.Model.Medication;
 import com.drones.dronesapi.dronesapi.Common.DTO.Request.Medication.*;
 import com.drones.dronesapi.dronesapi.Common.DTO.Response.Medication.*;
@@ -32,14 +32,26 @@ public class MedicationController {
 	}
 	
 	@RequestMapping(value = "/getAll",method = RequestMethod.GET)
-	public ResponseEntity<List<Medication>> getAll() {
+	public ResponseEntity<List<MedicationResponseDTO>> getAll() {
         List<Medication> medications = medicationService.getAll();
-		return new ResponseEntity<List<Medication>>(medications,HttpStatus.OK);
+        List<MedicationResponseDTO> medicationsResponse = new LinkedList<MedicationResponseDTO>();
+        for(int i = 0 ; i < medications.size() ;++i) {
+        	medicationsResponse.add(mapper.medicationToMedicationResponseDTO(medications.get(i)));
+        }
+		return new ResponseEntity<List<MedicationResponseDTO>>(medicationsResponse,HttpStatus.OK);
 	}
 	@RequestMapping(value = "/getById/{id}",method = RequestMethod.GET)
-	public ResponseEntity<Medication> getById(@PathVariable("id") long id) {
-        Medication medication = medicationService.getById(id);
-		return new ResponseEntity<Medication>(medication,HttpStatus.OK);
+	public ResponseEntity<MedicationResponseDTO> getById(@PathVariable("id") long id) {
+		ResponseEntity<MedicationResponseDTO> response;
+		try {
+			Medication medication = medicationService.getById(id);
+			response = new ResponseEntity<MedicationResponseDTO>(mapper.medicationToMedicationResponseDTO(medication),HttpStatus.OK);
+		}
+		catch (Exception e) {
+			response = new ResponseEntity<MedicationResponseDTO>(HttpStatus.NOT_FOUND);
+		}
+        
+		return response;
 	}
 	@RequestMapping(value = "/addMedication",method = RequestMethod.PUT)
 	public ResponseEntity<?> addMedication(@RequestBody AddMedicationRequestDTO request) {

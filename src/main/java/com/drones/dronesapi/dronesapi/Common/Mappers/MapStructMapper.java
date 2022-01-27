@@ -27,6 +27,8 @@ public interface MapStructMapper {
 	
 	ModifyDroneResponseDTO droneToModifyDroneResponseDTO(Drone drone);
 	
+	DroneResponseDTO droneToDroneResponseDTO(Drone drone);
+	
 	Medication addMedicationRequestDTOToMedication(AddMedicationRequestDTO addMedicationRequest);
 	
 	Medication deleteMedicationRequestDTOToMedication(DeleteMedicationRequestDTO deleteMedicationRequest );
@@ -39,5 +41,5 @@ public interface MapStructMapper {
 	
 	ModifyMedicationResponseDTO medicationToModifyMedicationResponseDTO(Medication medication);
 	
-	
+	MedicationResponseDTO medicationToMedicationResponseDTO(Medication medication);
 }
