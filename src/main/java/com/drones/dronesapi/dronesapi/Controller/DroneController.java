@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import com.drones.dronesapi.dronesapi.Services.DroneService;
@@ -25,6 +26,8 @@ import com.drones.dronesapi.dronesapi.Common.DTO.Response.Drone.*;
 @RestController
 @RequestMapping("/drone")
 public class DroneController {
+	
+	private static Logger logger = LogManager.getLogger(DroneController.class);
 
 	@Autowired
     private DroneService droneService;    
@@ -87,5 +90,12 @@ public class DroneController {
         	responseDrones.add(mapper.droneToDroneResponseDTO(drones.get(i)));
         }
 		return new ResponseEntity<List<DroneResponseDTO>>(responseDrones,HttpStatus.OK);
+	}
+	
+	public void checkDronesState() {
+		List<Drone> drones = droneService.getAll();
+		logger.debug("================STARTING DRONE CHECKING================");
+		logger.debug(drones.toString());
+		logger.debug("================ENDING DRONE CHECKING==================");
 	}
 }

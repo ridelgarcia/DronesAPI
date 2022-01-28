@@ -1,0 +1,36 @@
+<Configuration status="WARM" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_PATTERN">
+            %d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${hostName} --- [%15.15t] %-40.40c{1.} : %m%n%ex
+        </Property>
+        <Property name="LOG_DIR">
+            ${user.home}
+        </Property>
+    </Properties>
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+        <RollingFile
+            name="dronecontroller"
+            fileName="${LOG_DIR}/dronecontroller.log"
+            filePattern="${LOG_DIR}/dronecontroller.%i.log.gz"
+            ignoreExceptions="false">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="5" />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.drones.dronesapi.dronesapi.Controller.DroneController" level="debug" additivity="false">
+            <AppenderRef ref="dronecontroller" />
+        </Logger>
+        <Root level="debug">
+            <AppenderRef ref="ConsoleAppender" />
+        </Root>        
+    </Loggers>
+</Configuration>
