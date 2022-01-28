@@ -32,7 +32,7 @@ public class Medication {
 	}
 
 	public Medication(long id, String name, int weight, String code, String imagePath) {
-		super();
+		
 		this.id = id;
 		this.name = name;
 		this.weight = weight;

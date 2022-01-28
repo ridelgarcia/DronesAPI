@@ -9,3 +9,10 @@ INSERT INTO drone_state (drone_state) VALUES ('LOADED');
 INSERT INTO drone_state (drone_state) VALUES ('DELIVERING');
 INSERT INTO drone_state (drone_state) VALUES ('DELIVERED');
 INSERT INTO drone_state (drone_state) VALUES ('RETURNING');
+
+INSERT INTO deliver_status (deliver_status) VALUES ('WAITING_TO_DELIVER');
+INSERT INTO deliver_status (deliver_status) VALUES ('DELIVERING');
+INSERT INTO deliver_status (deliver_status) VALUES ('DELIVERED');
+
+INSERT INTO location (location_coordinates) VALUES ('ABD652DE5F');
+INSERT INTO location (location_coordinates) VALUES ('A5F87ED');

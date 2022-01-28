@@ -14,7 +14,7 @@ public class Location {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name = "locationcoordinates")
+	@Column(name = "location_coordinates")
 	private String locationcoordinates;
 
 	public Location() {

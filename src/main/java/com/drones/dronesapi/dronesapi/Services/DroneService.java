@@ -17,8 +17,8 @@ public class DroneService {
 	@Autowired
 	private DroneRepository rep;	
 	
-	public Drone save(Drone _entity) {
-		return rep.save(_entity);
+	public Drone save(Drone entity) {
+		return rep.save(entity);
 	}
 	
 	public Drone getById(Serializable id) {
@@ -27,7 +27,7 @@ public class DroneService {
 	public List<Drone> getAll() {
 		return rep.findAll();
 	}	
-	public void delete(Drone _drone) {
-		rep.delete(_drone);
+	public void delete(Drone drone) {
+		rep.delete(drone);
 	}
 }

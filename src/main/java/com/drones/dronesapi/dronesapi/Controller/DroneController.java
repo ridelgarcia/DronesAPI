@@ -26,18 +26,12 @@ import com.drones.dronesapi.dronesapi.Common.DTO.Response.Drone.*;
 @RequestMapping("/drone")
 public class DroneController {
 
+	@Autowired
+    private DroneService droneService;    
+	@Autowired
+    private MapStructMapper mapper;
     
-    DroneService droneService;    
     
-    MapStructMapper mapper;
-    
-    @Autowired
-    public DroneController(DroneService droneService, MapStructMapper mapper) {
-		
-		this.droneService = droneService;
-		this.mapper = mapper;
-	}
-
 	@RequestMapping(value = "/getAll",method = RequestMethod.GET)
 	public ResponseEntity<List<DroneResponseDTO>> getAll() {
         List<Drone> drones = droneService.getAll();
