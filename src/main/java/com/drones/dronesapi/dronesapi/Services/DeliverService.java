@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.drones.dronesapi.dronesapi.Model.Deliver;
+import com.drones.dronesapi.dronesapi.Model.DeliverStatus;
+import com.drones.dronesapi.dronesapi.Model.Drone;
 import com.drones.dronesapi.dronesapi.Repository.DeliverRepository;
 
 
@@ -29,5 +31,9 @@ public class DeliverService {
 	}	
 	public void delete(Deliver deliver) {
 		rep.delete(deliver);
+	}
+	
+	public List<Deliver> getByStatusIdAndDroneId(DeliverStatus status,Drone drone){
+		return rep.findByDeliverStatusAndDrone(status, drone);
 	}
 }
