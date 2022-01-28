@@ -4,6 +4,7 @@ import com.drones.dronesapi.dronesapi.Common.DTO.Request.Drone.*;
 import com.drones.dronesapi.dronesapi.Common.DTO.Response.Drone.*;
 import com.drones.dronesapi.dronesapi.Common.DTO.Request.Medication.*;
 import com.drones.dronesapi.dronesapi.Common.DTO.Response.Medication.*;
+import com.drones.dronesapi.dronesapi.Common.DTO.Response.Deliver.*;
 import com.drones.dronesapi.dronesapi.Model.*;
 import org.mapstruct.Mapper;
 
@@ -42,4 +43,6 @@ public interface MapStructMapper {
 	ModifyMedicationResponseDTO medicationToModifyMedicationResponseDTO(Medication medication);
 	
 	MedicationResponseDTO medicationToMedicationResponseDTO(Medication medication);
+	
+	DeliverResponseDTO deliverToDeliverResponseDTO(Deliver deliver);
 }
