@@ -30,4 +30,7 @@ public class DroneService {
 	public void delete(Drone drone) {
 		rep.delete(drone);
 	}
+	public List<Drone> getByStateId(long id){
+		return rep.findByState_id(id);
+	}
 }
