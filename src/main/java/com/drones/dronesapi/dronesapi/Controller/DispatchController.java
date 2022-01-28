@@ -102,7 +102,7 @@ public class DispatchController {
 			Location location = locationService.getById(request.getLocationId());
 			DeliverLoad load = deliverLoadService.getById(request.getDeliverLoadId());
 			DroneState state;
-			if(drone.getState().getId() == 1) {				
+			if(drone.getState().getId() == 1 && drone.getBatteryCapacity() > 25) {				
 				if(drone.getWeightLimit() >= load.calculateWeight()) {
 					state = droneStateService.getById(2);
 					drone.setState(state);

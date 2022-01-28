@@ -78,5 +78,14 @@ public class DroneController {
         ModifyDroneResponseDTO response = mapper.droneToModifyDroneResponseDTO(drone);
 		return new ResponseEntity<ModifyDroneResponseDTO>(response,HttpStatus.OK);
 	}
-
+	
+	@RequestMapping(value = "/getDroneAvailableToLoad",method = RequestMethod.GET)
+	public ResponseEntity<List<DroneResponseDTO>> getDroneAvailableToLoad() {
+        List<Drone> drones = droneService.getByStateId(1);
+        List<DroneResponseDTO> responseDrones = new LinkedList<DroneResponseDTO>();
+        for(int i = 0 ; i < drones.size() ;++i ) {
+        	responseDrones.add(mapper.droneToDroneResponseDTO(drones.get(i)));
+        }
+		return new ResponseEntity<List<DroneResponseDTO>>(responseDrones,HttpStatus.OK);
+	}
 }
