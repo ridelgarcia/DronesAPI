@@ -93,9 +93,7 @@ public class DroneController {
 	}
 	
 	public void checkDronesState() {
-		List<Drone> drones = droneService.getAll();
-		logger.debug("================STARTING DRONE CHECKING================");
-		logger.debug(drones.toString());
-		logger.debug("================ENDING DRONE CHECKING==================");
+		List<Drone> drones = droneService.getAll();		
+		logger.info(drones.toString());		
 	}
 }

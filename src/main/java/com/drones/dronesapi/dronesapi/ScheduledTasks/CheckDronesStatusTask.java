@@ -20,8 +20,7 @@ public class CheckDronesStatusTask {
 
 	
 	@Scheduled(fixedDelay = 30000)
-	public void checkDronesState() {
-		System.out.println("=======SCHEDULED TASK=================");
+	public void checkDronesState() {		
 		controller.checkDronesState();		
 	}
 
