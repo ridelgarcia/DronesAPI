@@ -144,7 +144,7 @@ public class DispatchController {
 		return new ResponseEntity<LoadDroneResponseDTO>(response,HttpStatus.OK);
 	}
 	@RequestMapping(value = "/getLoadedItemsForDrone/{id}",method = RequestMethod.GET)
-	public ResponseEntity<?> getById(@PathVariable("id") long id) {
+	public ResponseEntity<?> getLoadedItemsForDrone(@PathVariable("id") long id) {
 		
 		ResponseEntity<?> response;
 		try {
