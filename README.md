@@ -25,6 +25,11 @@ Once the application runs you should see something like this
 2022-01-29 10:42:01.477 DEBUG Tauro --- [   scheduling-1] o.s.j.d.DataSourceUtils                  : Resetting read-only flag of JDBC Connection [HikariProxyConnection@1856536019 wrapping conn0: url=jdbc:h2:mem:dronesdb user=SA]
 2022-01-29 10:42:01.477 DEBUG Tauro --- [   scheduling-1] o.s.o.j.JpaTransactionManager            : Closing JPA EntityManager [SessionImpl(1021347900<open>)] after transaction
 ```
+## Swagger API Documentation
+
+You can access the API documentation by typing in a web browser:
+
+http://localhost:8080/swagger-ui.html
 
 ## About the Service
 
@@ -80,7 +85,7 @@ Response: HTTP 200
 Content: object 
 ```
 
-### Update a hotel resource
+### Update a drone
 ```
 POST /drone/modifyDrone
 Accept: application/json
@@ -128,6 +133,6 @@ Spring Boot is an "opinionated" application bootstrapping framework that makes i
 
 ### To view your H2 in-memory datbase
 
-The 'test' profile runs on H2 in-memory database. To view and query the database you can browse to http://localhost:8080/h2-ui. Default username is 'sa' with a blank password. Make sure you disable this in your production profiles. For more, see https://goo.gl/U8m62X
+The 'dronesdb' profile runs on H2 in-memory database. To view and query the database you can browse to http://localhost:8080/h2-ui. Default username is 'sa' with a blank password. Make sure you disable this in your production profiles. For more, see https://goo.gl/U8m62X
 
 # Questions and Comments: rmora900121@gmail.com
